@@ -1,0 +1,27 @@
+{
+  "name": "fittrack-pwa",
+  "version": "2.0.0",
+  "description": "Advanced Health & Fitness Tracker PWA",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve . -p 3000",
+    "build": "npm run generate-icons && npm run minify",
+    "generate-icons": "node generate-icons.js",
+    "minify": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o style.min.css style.css",
+    "minify-js": "terser app.js -o app.min.js",
+    "deploy": "npm run build && gh-pages -d ."
+  },
+  "dependencies": {
+    "chart.js": "^4.0.0",
+    "chartjs-plugin-datalabels": "^2.0.0",
+    "idb": "^7.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.32.0",
+    "serve": "^14.0.0",
+    "clean-css-cli": "^5.0.0",
+    "terser": "^5.0.0",
+    "gh-pages": "^5.0.0"
+  }
+}
